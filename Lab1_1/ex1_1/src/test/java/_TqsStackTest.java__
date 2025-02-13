@@ -1,0 +1,82 @@
+
+import org.junit.jupiter.api.Test;
+import java.util.NoSuchElementException;
+
+import com.example.TqsStack;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+class _TqsStackTest {
+
+    @Test
+    void testStackIsEmpty() {
+        TqsStack<Integer> stack = new TqsStack<>();
+        assertTrue(stack.isEmpty(), "A new stack should be empty");
+    }
+
+    @Test
+    void testStackHasSizeZero() {
+        TqsStack<Integer> stack = new TqsStack<>();
+        assertEquals(0, stack.size(), "A new stack should have size 0");
+    }
+
+    @Test
+    void testPushIncreasesSize() {
+        TqsStack<Integer> stack = new TqsStack<>();
+        stack.push(10);
+        stack.push(20);
+        assertFalse(stack.isEmpty(), "Stack should not be empty after pushes");
+        assertEquals(2, stack.size(), "Stack size should be 2 after two pushes");
+    }
+
+    @Test
+    void testPopReturnsX() {
+        TqsStack<Integer> stack = new TqsStack<>();
+        stack.push(10);
+        stack.push(20);
+        assertEquals(20, stack.pop(), "Popped element should be the last pushed one");
+        assertEquals(1, stack.size(), "Stack size should decrease after pop");
+    }
+
+    @Test
+    void testPeekReturnsX() {
+        TqsStack<Integer> stack = new TqsStack<>();
+        stack.push(10);
+        stack.push(20);
+        assertEquals(20, stack.peek(), "Peek should return the last pushed element");
+        assertEquals(2, stack.size(), "Stack size should remain the same after peek");
+    }
+
+    @Test
+    void testPopAllElements() {
+        TqsStack<Integer> stack = new TqsStack<>();
+        stack.push(10);
+        stack.push(20);
+        stack.push(30);
+        stack.pop();
+        stack.pop();
+        stack.pop();
+        assertTrue(stack.isEmpty(), "Stack should be empty after popping all elements");
+        assertEquals(0, stack.size(), "Stack size should be 0 after popping all elements");
+    }
+
+    @Test
+    void testPopOnEmptyStackThrowsException() {
+        TqsStack<Integer> stack = new TqsStack<>();
+        assertThrows(NoSuchElementException.class, stack::pop, "Popping an empty stack should throw NoSuchElementException");
+    }
+
+    @Test
+    void testPeekOnEmptyStackThrowsException() {
+        TqsStack<Integer> stack = new TqsStack<>();
+        assertThrows(NoSuchElementException.class, stack::peek, "Peeking an empty stack should throw NoSuchElementException");
+    }
+
+    @Test
+    void testPushingToFullBoundedStackThrowsException() {
+        TqsStack<Integer> stack = new TqsStack<>(2); // "tamanho 2"
+        stack.push(10);
+        stack.push(20);
+        assertThrows(IllegalStateException.class, () -> stack.push(30), "Pushing onto a full stack should throw IllegalStateException");
+    }
+}
