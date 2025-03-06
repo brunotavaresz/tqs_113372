@@ -1,6 +1,7 @@
 package com.example.cars.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,4 +25,20 @@ public class CarManagerService {
     public Car getCarDetails(Long id) {
         return carRepository.findByCarId(id);
     }
+
+    public Car findReplacementCar(Car originalCar) {
+        Optional<Car> replacementCar = carRepository.findAll().stream()
+            .filter(car -> car.getCarId() != null && !car.getCarId().equals(originalCar.getCarId()) // Carro com ID diferente
+                    && car.getSegment().equals(originalCar.getSegment())    // Mesmo segmento
+                    && car.getEngineType().equals(originalCar.getEngineType())) // Mesmo tipo de motor
+            .findFirst(); // Pega o primeiro que atender as condições
+    
+        return replacementCar.orElse(null); // Retorna null se não encontrar nenhum carro substituto
+    }
+    
+    
+    
+    
+    
+    
 }
