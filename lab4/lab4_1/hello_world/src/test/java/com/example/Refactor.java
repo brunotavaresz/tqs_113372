@@ -23,7 +23,7 @@ class Refactor {
     static final Logger log = getLogger(lookup().lookupClass());
 
     @Test
-    void test_refactor(FirefoxDriver driver) {
+    void test_refactor(ChromeDriver driver) {
         // Exercise
         String sutUrl = "https://bonigarcia.dev/selenium-webdriver-java/";
         driver.get(sutUrl);
@@ -35,7 +35,7 @@ class Refactor {
     }
 
     @Test
-    void test_refactor_firefox(@DockerBrowser(type = FIREFOX) WebDriver driver) {
+    void test_refactor_firefox(@DockerBrowser(type = CHROME) WebDriver driver) {
         // Exercise
         String sutUrl = "https://bonigarcia.dev/selenium-webdriver-java/";
         driver.get(sutUrl);

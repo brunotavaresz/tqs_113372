@@ -21,12 +21,12 @@ class HelloWorldChromeJupiterTest {
 
     @BeforeAll
     static void setupClass() {
-        WebDriverManager.firefoxdriver().setup(); 
+        WebDriverManager.chromedriver().setup(); 
     }
 
     @BeforeEach
     void setup() {
-        driver = new FirefoxDriver(); 
+        driver = new ChromeDriver(); 
     }
 
     @Test
