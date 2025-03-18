@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.example.CucumberTest" time="0.195" tests="3" errors="0" skipped="0" failures="0">
+  <properties>
+    <property name="java.specification.version" value="21"/>
+    <property name="sun.jnu.encoding" value="UTF-8"/>
+    <property name="java.class.path" value="/home/brunotavaresz/Secretária/UA/TQS/tqs_113372/lab5/lab5_2/book/target/test-classes:/home/brunotavaresz/Secretária/UA/TQS/tqs_113372/lab5/lab5_2/book/target/classes:/home/brunotavaresz/.m2/repository/org/slf4j/slf4j-api/2.0.12/slf4j-api-2.0.12.jar:/home/brunotavaresz/.m2/repository/ch/qos/logback/logback-classic/1.5.3/logback-classic-1.5.3.jar:/home/brunotavaresz/.m2/repository/ch/qos/logback/logback-core/1.5.3/logback-core-1.5.3.jar:/home/brunotavaresz/.m2/repository/org/junit/jupiter/junit-jupiter/5.10.2/junit-jupiter-5.10.2.jar:/home/brunotavaresz/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.10.2/junit-jupiter-api-5.10.2.jar:/home/brunotavaresz/.m2/repository/org/opentest4j/opentest4j/1.3.0/opentest4j-1.3.0.jar:/home/brunotavaresz/.m2/repository/org/junit/platform/junit-platform-commons/1.10.2/junit-platform-commons-1.10.2.jar:/home/brunotavaresz/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.10.2/junit-jupiter-params-5.10.2.jar:/home/brunotavaresz/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.10.2/junit-jupiter-engine-5.10.2.jar:/home/brunotavaresz/.m2/repository/org/junit/platform/junit-platform-suite/1.10.1/junit-platform-suite-1.10.1.jar:/home/brunotavaresz/.m2/repository/org/junit/platform/junit-platform-suite-api/1.10.1/junit-platform-suite-api-1.10.1.jar:/home/brunotavaresz/.m2/repository/org/junit/platform/junit-platform-suite-engine/1.10.1/junit-platform-suite-engine-1.10.1.jar:/home/brunotavaresz/.m2/repository/org/junit/platform/junit-platform-suite-commons/1.10.1/junit-platform-suite-commons-1.10.1.jar:/home/brunotavaresz/.m2/repository/org/junit/platform/junit-platform-launcher/1.10.1/junit-platform-launcher-1.10.1.jar:/home/brunotavaresz/.m2/repository/io/cucumber/cucumber-java/7.15.0/cucumber-java-7.15.0.jar:/home/brunotavaresz/.m2/repository/io/cucumber/cucumber-core/7.15.0/cucumber-core-7.15.0.jar:/home/brunotavaresz/.m2/repository/io/cucumber/cucumber-gherkin/7.15.0/cucumber-gherkin-7.15.0.jar:/home/brunotavaresz/.m2/repository/io/cucumber/cucumber-gherkin-messages/7.15.0/cucumber-gherkin-messages-7.15.0.jar:/home/brunotavaresz/.m2/repository/io/cucumber/gherkin/26.2.0/gherkin-26.2.0.jar:/home/brunotavaresz/.m2/repository/io/cucumber/messages/22.0.0/messages-22.0.0.jar:/home/brunotavaresz/.m2/repository/io/cucumber/tag-expressions/6.0.0/tag-expressions-6.0.0.jar:/home/brunotavaresz/.m2/repository/io/cucumber/cucumber-expressions/17.0.1/cucumber-expressions-17.0.1.jar:/home/brunotavaresz/.m2/repository/io/cucumber/datatable/7.15.0/datatable-7.15.0.jar:/home/brunotavaresz/.m2/repository/io/cucumber/cucumber-plugin/7.15.0/cucumber-plugin-7.15.0.jar:/home/brunotavaresz/.m2/repository/io/cucumber/docstring/7.15.0/docstring-7.15.0.jar:/home/brunotavaresz/.m2/repository/io/cucumber/html-formatter/20.4.0/html-formatter-20.4.0.jar:/home/brunotavaresz/.m2/repository/io/cucumber/junit-xml-formatter/0.2.0/junit-xml-formatter-0.2.0.jar:/home/brunotavaresz/.m2/repository/io/cucumber/ci-environment/10.0.0/ci-environment-10.0.0.jar:/home/brunotavaresz/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/home/brunotavaresz/.m2/repository/io/cucumber/cucumber-junit-platform-engine/7.15.0/cucumber-junit-platform-engine-7.15.0.jar:/home/brunotavaresz/.m2/repository/org/junit/platform/junit-platform-engine/1.10.1/junit-platform-engine-1.10.1.jar:/home/brunotavaresz/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar:"/>
+    <property name="java.vm.vendor" value="Ubuntu"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="java.vendor.url" value="https://ubuntu.com/"/>
+    <property name="user.timezone" value="Europe/Lisbon"/>
+    <property name="os.name" value="Linux"/>
+    <property name="java.vm.specification.version" value="21"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="user.country" value="PT"/>
+    <property name="sun.boot.library.path" value="/usr/lib/jvm/java-21-openjdk-amd64/lib"/>
+    <property name="sun.java.command" value="/home/brunotavaresz/Secretária/UA/TQS/tqs_113372/lab5/lab5_2/book/target/surefire/surefirebooter-20250318235126987_3.jar /home/brunotavaresz/Secretária/UA/TQS/tqs_113372/lab5/lab5_2/book/target/surefire 2025-03-18T23-51-26_880-jvmRun1 surefire-20250318235126987_1tmp surefire_0-20250318235126987_2tmp"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="surefire.test.class.path" value="/home/brunotavaresz/Secretária/UA/TQS/tqs_113372/lab5/lab5_2/book/target/test-classes:/home/brunotavaresz/Secretária/UA/TQS/tqs_113372/lab5/lab5_2/book/target/classes:/home/brunotavaresz/.m2/repository/org/slf4j/slf4j-api/2.0.12/slf4j-api-2.0.12.jar:/home/brunotavaresz/.m2/repository/ch/qos/logback/logback-classic/1.5.3/logback-classic-1.5.3.jar:/home/brunotavaresz/.m2/repository/ch/qos/logback/logback-core/1.5.3/logback-core-1.5.3.jar:/home/brunotavaresz/.m2/repository/org/junit/jupiter/junit-jupiter/5.10.2/junit-jupiter-5.10.2.jar:/home/brunotavaresz/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.10.2/junit-jupiter-api-5.10.2.jar:/home/brunotavaresz/.m2/repository/org/opentest4j/opentest4j/1.3.0/opentest4j-1.3.0.jar:/home/brunotavaresz/.m2/repository/org/junit/platform/junit-platform-commons/1.10.2/junit-platform-commons-1.10.2.jar:/home/brunotavaresz/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.10.2/junit-jupiter-params-5.10.2.jar:/home/brunotavaresz/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.10.2/junit-jupiter-engine-5.10.2.jar:/home/brunotavaresz/.m2/repository/org/junit/platform/junit-platform-suite/1.10.1/junit-platform-suite-1.10.1.jar:/home/brunotavaresz/.m2/repository/org/junit/platform/junit-platform-suite-api/1.10.1/junit-platform-suite-api-1.10.1.jar:/home/brunotavaresz/.m2/repository/org/junit/platform/junit-platform-suite-engine/1.10.1/junit-platform-suite-engine-1.10.1.jar:/home/brunotavaresz/.m2/repository/org/junit/platform/junit-platform-suite-commons/1.10.1/junit-platform-suite-commons-1.10.1.jar:/home/brunotavaresz/.m2/repository/org/junit/platform/junit-platform-launcher/1.10.1/junit-platform-launcher-1.10.1.jar:/home/brunotavaresz/.m2/repository/io/cucumber/cucumber-java/7.15.0/cucumber-java-7.15.0.jar:/home/brunotavaresz/.m2/repository/io/cucumber/cucumber-core/7.15.0/cucumber-core-7.15.0.jar:/home/brunotavaresz/.m2/repository/io/cucumber/cucumber-gherkin/7.15.0/cucumber-gherkin-7.15.0.jar:/home/brunotavaresz/.m2/repository/io/cucumber/cucumber-gherkin-messages/7.15.0/cucumber-gherkin-messages-7.15.0.jar:/home/brunotavaresz/.m2/repository/io/cucumber/gherkin/26.2.0/gherkin-26.2.0.jar:/home/brunotavaresz/.m2/repository/io/cucumber/messages/22.0.0/messages-22.0.0.jar:/home/brunotavaresz/.m2/repository/io/cucumber/tag-expressions/6.0.0/tag-expressions-6.0.0.jar:/home/brunotavaresz/.m2/repository/io/cucumber/cucumber-expressions/17.0.1/cucumber-expressions-17.0.1.jar:/home/brunotavaresz/.m2/repository/io/cucumber/datatable/7.15.0/datatable-7.15.0.jar:/home/brunotavaresz/.m2/repository/io/cucumber/cucumber-plugin/7.15.0/cucumber-plugin-7.15.0.jar:/home/brunotavaresz/.m2/repository/io/cucumber/docstring/7.15.0/docstring-7.15.0.jar:/home/brunotavaresz/.m2/repository/io/cucumber/html-formatter/20.4.0/html-formatter-20.4.0.jar:/home/brunotavaresz/.m2/repository/io/cucumber/junit-xml-formatter/0.2.0/junit-xml-formatter-0.2.0.jar:/home/brunotavaresz/.m2/repository/io/cucumber/ci-environment/10.0.0/ci-environment-10.0.0.jar:/home/brunotavaresz/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/home/brunotavaresz/.m2/repository/io/cucumber/cucumber-junit-platform-engine/7.15.0/cucumber-junit-platform-engine-7.15.0.jar:/home/brunotavaresz/.m2/repository/org/junit/platform/junit-platform-engine/1.10.1/junit-platform-engine-1.10.1.jar:/home/brunotavaresz/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar:"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="/home/brunotavaresz"/>
+    <property name="user.language" value="pt"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.version.date" value="2025-01-21"/>
+    <property name="java.home" value="/usr/lib/jvm/java-21-openjdk-amd64"/>
+    <property name="file.separator" value="/"/>
+    <property name="basedir" value="/home/brunotavaresz/Secretária/UA/TQS/tqs_113372/lab5/lab5_2/book"/>
+    <property name="java.vm.compressedOopsMode" value="Zero based"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="surefire.real.class.path" value="/home/brunotavaresz/Secretária/UA/TQS/tqs_113372/lab5/lab5_2/book/target/surefire/surefirebooter-20250318235126987_3.jar"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="java.runtime.version" value="21.0.6+7-Ubuntu-124.04.1"/>
+    <property name="user.name" value="brunotavaresz"/>
+    <property name="stdout.encoding" value="UTF-8"/>
+    <property name="path.separator" value=":"/>
+    <property name="os.version" value="6.11.0-19-generic"/>
+    <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
+    <property name="localRepository" value="/home/brunotavaresz/.m2/repository"/>
+    <property name="java.vendor.url.bug" value="https://bugs.launchpad.net/ubuntu/+source/openjdk-21"/>
+    <property name="java.io.tmpdir" value="/tmp"/>
+    <property name="java.version" value="21.0.6"/>
+    <property name="user.dir" value="/home/brunotavaresz/Secretária/UA/TQS/tqs_113372/lab5/lab5_2/book"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="native.encoding" value="UTF-8"/>
+    <property name="java.library.path" value="/usr/java/packages/lib:/usr/lib/x86_64-linux-gnu/jni:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/lib/jni:/lib:/usr/lib"/>
+    <property name="java.vm.info" value="mixed mode, sharing"/>
+    <property name="stderr.encoding" value="UTF-8"/>
+    <property name="java.vendor" value="Ubuntu"/>
+    <property name="java.vm.version" value="21.0.6+7-Ubuntu-124.04.1"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="java.class.version" value="65.0"/>
+  </properties>
+  <testcase name="Searching for books by author" classname="Book search in the library" time="0.088">
+    <system-out><![CDATA[
+Scenario: Searching for books by author                     &amp#27;[90m# com/example/book_search.feature:3&amp#27;[0m
+  &amp#27;[32mGiven &amp#27;[0m&amp#27;[32mthe following books in the library:&amp#27;[0m                 &amp#27;[90m# com.example.BookSearchSteps.givenTheFollowingBooksInTheLibrary(io.cucumber.datatable.DataTable)&amp#27;[0m
+    | title           | author       | published  |
+    | "Java Basics"   | "John Doe"   | 2022-05-01 |
+    | "Advanced Java" | "Jane Smith" | 2021-07-15 |
+    | "Learning Java" | "John Doe"   | 2020-11-20 |
+  &amp#27;[32mWhen &amp#27;[0m&amp#27;[32mthe customer searches for books by author &amp#27;[0m&amp#27;[32m&amp#27;[1m"John Doe"&amp#27;[0m &amp#27;[90m# com.example.BookSearchSteps.whenCustomerSearchesForBooksByAuthor(java.lang.String)&amp#27;[0m
+  &amp#27;[32mThen &amp#27;[0m&amp#27;[32mthe library should return the following books:&amp#27;[0m       &amp#27;[90m# com.example.BookSearchSteps.thenLibraryShouldReturnTheFollowingBooks(io.cucumber.datatable.DataTable)&amp#27;[0m
+    | title           | author     | published  |
+    | "Java Basics"   | "John Doe" | 2022-05-01 |
+    | "Learning Java" | "John Doe" | 2020-11-20 |
+]]></system-out>
+  </testcase>
+  <testcase name="Searching for books published between two dates" classname="Book search in the library" time="0.008">
+    <system-out><![CDATA[
+Scenario: Searching for books published between two dates                          &amp#27;[90m# com/example/book_search.feature:15&amp#27;[0m
+  &amp#27;[32mGiven &amp#27;[0m&amp#27;[32mthe following books in the library:&amp#27;[0m                                        &amp#27;[90m# com.example.BookSearchSteps.givenTheFollowingBooksInTheLibrary(io.cucumber.datatable.DataTable)&amp#27;[0m
+    | title           | author       | published  |
+    | "Java Basics"   | "John Doe"   | 2022-05-01 |
+    | "Advanced Java" | "Jane Smith" | 2021-07-15 |
+    | "Learning Java" | "John Doe"   | 2020-11-20 |
+  &amp#27;[32mWhen &amp#27;[0m&amp#27;[32mthe customer searches for books published between &amp#27;[0m&amp#27;[32m&amp#27;[1m2020-01-01&amp#27;[0m&amp#27;[32m and &amp#27;[0m&amp#27;[32m&amp#27;[1m2022-01-01&amp#27;[0m &amp#27;[90m# com.example.BookSearchSteps.whenCustomerSearchesForBooksPublishedBetweenDates(java.util.Date,java.util.Date)&amp#27;[0m
+  &amp#27;[32mThen &amp#27;[0m&amp#27;[32mthe library should return the following books:&amp#27;[0m                              &amp#27;[90m# com.example.BookSearchSteps.thenLibraryShouldReturnTheFollowingBooks(io.cucumber.datatable.DataTable)&amp#27;[0m
+    | title           | author     | published  |
+    | "Learning Java" | "John Doe" | 2020-11-20 |
+]]></system-out>
+  </testcase>
+  <testcase name="Searching for books with no results" classname="Book search in the library" time="0.007">
+    <system-out><![CDATA[
+Scenario: Searching for books with no results                                      &amp#27;[90m# com/example/book_search.feature:26&amp#27;[0m
+  &amp#27;[32mGiven &amp#27;[0m&amp#27;[32mthe following books in the library:&amp#27;[0m                                        &amp#27;[90m# com.example.BookSearchSteps.givenTheFollowingBooksInTheLibrary(io.cucumber.datatable.DataTable)&amp#27;[0m
+    | title           | author       | published  |
+    | "Java Basics"   | "John Doe"   | 2022-05-01 |
+    | "Advanced Java" | "Jane Smith" | 2021-07-15 |
+  &amp#27;[32mWhen &amp#27;[0m&amp#27;[32mthe customer searches for books published between &amp#27;[0m&amp#27;[32m&amp#27;[1m2019-01-01&amp#27;[0m&amp#27;[32m and &amp#27;[0m&amp#27;[32m&amp#27;[1m2019-12-31&amp#27;[0m &amp#27;[90m# com.example.BookSearchSteps.whenCustomerSearchesForBooksPublishedBetweenDates(java.util.Date,java.util.Date)&amp#27;[0m
+  &amp#27;[32mThen &amp#27;[0m&amp#27;[32mthe library should return no books&amp#27;[0m                                          &amp#27;[90m# com.example.BookSearchSteps.thenLibraryShouldReturnNoBooks()&amp#27;[0m
+]]></system-out>
+  </testcase>
+</testsuite>
