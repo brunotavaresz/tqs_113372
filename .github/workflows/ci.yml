@@ -5,12 +5,12 @@ on:
     branches:
       - main
     paths:
-      - 'HW1/api/bookingMoliceiro/**'  # Aciona o workflow apenas para alterações na pasta HW1/api
+      - 'HW1/api/**'  # Aciona o workflow apenas para alterações na pasta HW1/api
   pull_request:
     branches:
       - main
     paths:
-      - 'HW1/api/bookingMoliceiro/**'  # Aciona o workflow apenas para pull requests que afetam a pasta HW1/api
+      - 'HW1/api/**'  # Aciona o workflow apenas para pull requests que afetam a pasta HW1/api
 
 jobs:
   build:
