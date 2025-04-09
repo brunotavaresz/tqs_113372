@@ -314,6 +314,7 @@ const App = () => {
     setSelectedMeal(meal);
     setReservationCode(generateReservationCode());
     setOpenReservationDialog(true);
+    setReservationConfirmed(false);
   };
 
   const handleReservationClose = () => {
