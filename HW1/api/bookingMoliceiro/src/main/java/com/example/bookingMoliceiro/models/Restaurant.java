@@ -17,4 +17,5 @@ public class Restaurant {
     private String location;
 
     private String photoUrl;
+    private Integer maxCapacity;
 }

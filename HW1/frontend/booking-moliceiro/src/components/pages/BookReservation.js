@@ -633,6 +633,9 @@ const App = () => {
                                 Código de Reserva: {reservation.reservationCode}
                               </Typography>
                               <Typography variant="body2">
+                                Cliente: {reservation.customerName}
+                              </Typography>
+                              <Typography variant="body2">
                                 Data: {new Date(reservation.meal.date).toLocaleDateString('pt-PT')}
                               </Typography>
                               <Typography variant="body2">
