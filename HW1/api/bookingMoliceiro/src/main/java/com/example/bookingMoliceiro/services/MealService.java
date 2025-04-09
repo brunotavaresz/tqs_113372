@@ -52,19 +52,22 @@ public class MealService {
         logger.info("Updating meal with ID: {}", mealId);
         Meal existingMeal = getMealById(mealId);
         
-        // Se o horário estiver sendo atualizado, validá-lo
-        if (meal.getTime() != null) {
-            validateMealTime(meal.getTime());
-        }
-        
+        // Atualizar o nome e preço
         existingMeal.setName(meal.getName());
         existingMeal.setPrice(meal.getPrice());
         existingMeal.setDate(meal.getDate());
-        existingMeal.setTime(meal.getTime());
         existingMeal.setRestaurant(meal.getRestaurant());
+        
+        // Validar e atualizar o horário apenas se não for nulo
+        if (meal.getTime() != null) {
+            validateMealTime(meal.getTime());
+            existingMeal.setTime(meal.getTime());
+        }
+        // Se o time for nulo, mantém o horário existente
         
         return mealRepository.save(existingMeal);
     }
+    
 
     public List<Meal> getMenusByRestaurant(Long restaurantId) {
         logger.info("Fetching meals for restaurant with ID: {}", restaurantId);

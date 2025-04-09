@@ -36,11 +36,13 @@ public class RestaurantServiceTest {
         restaurant1.setId(1L);
         restaurant1.setName("O Bairro");
         restaurant1.setLocation("Aveiro Centro");
+        restaurant1.setMaxCapacity(50);
 
         restaurant2 = new Restaurant();
         restaurant2.setId(2L);
         restaurant2.setName("Ramona");
         restaurant2.setLocation("Rossio");
+        restaurant2.setMaxCapacity(30);
 
         restaurantList = Arrays.asList(restaurant1, restaurant2);
     }
@@ -61,7 +63,7 @@ public class RestaurantServiceTest {
     }
 
     @Test
-    void saveRestaurant_ShouldSaveRestaurant() {
+    void saveRestaurant_ShouldSaveRestaurant_WithValidData() {
         // Arrange
         when(restaurantRepository.save(any(Restaurant.class))).thenReturn(restaurant1);
 
@@ -71,6 +73,22 @@ public class RestaurantServiceTest {
         // Assert
         assertNotNull(savedRestaurant);
         assertEquals(restaurant1.getName(), savedRestaurant.getName());
+        assertEquals(restaurant1.getMaxCapacity(), savedRestaurant.getMaxCapacity());
+        verify(restaurantRepository, times(1)).save(restaurant1);
+    }
+
+    @Test
+    void saveRestaurant_ShouldSaveRestaurant_WithInvalidMaxCapacity() {
+        // Arrange
+        restaurant1.setMaxCapacity(0); // Capacidade inválida, deve ser ajustada para 20
+        when(restaurantRepository.save(any(Restaurant.class))).thenReturn(restaurant1);
+
+        // Act
+        Restaurant savedRestaurant = restaurantService.saveRestaurant(restaurant1);
+
+        // Assert
+        assertNotNull(savedRestaurant);
+        assertEquals(20, savedRestaurant.getMaxCapacity()); // Verifique se a capacidade foi ajustada para 20
         verify(restaurantRepository, times(1)).save(restaurant1);
     }
 
@@ -112,6 +130,7 @@ public class RestaurantServiceTest {
         Restaurant updatedRestaurant = new Restaurant();
         updatedRestaurant.setName("O Bairro Novo");
         updatedRestaurant.setLocation("Praça do Peixe");
+        updatedRestaurant.setMaxCapacity(60);
 
         when(restaurantRepository.findById(restaurantId)).thenReturn(Optional.of(restaurant1));
         when(restaurantRepository.save(any(Restaurant.class))).thenAnswer(invocation -> invocation.getArgument(0));
@@ -123,6 +142,7 @@ public class RestaurantServiceTest {
         assertNotNull(result);
         assertEquals(updatedRestaurant.getName(), result.getName());
         assertEquals(updatedRestaurant.getLocation(), result.getLocation());
+        assertEquals(updatedRestaurant.getMaxCapacity(), result.getMaxCapacity());
         assertEquals(restaurantId, result.getId());
         verify(restaurantRepository, times(1)).findById(restaurantId);
         verify(restaurantRepository, times(1)).save(any(Restaurant.class));

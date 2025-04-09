@@ -1,5 +1,6 @@
 package com.example.bookingMoliceiro.controllers;
 
+import com.example.bookingMoliceiro.exceptions.InvalidMealTimeException;
 import com.example.bookingMoliceiro.models.Meal;
 import com.example.bookingMoliceiro.services.MealService;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -12,12 +13,13 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import static org.hamcrest.Matchers.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.eq;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
@@ -71,6 +73,18 @@ public class MealControllerTest {
     }
 
     @Test
+    void getAllMeals_WhenEmpty_ShouldReturnEmptyList() throws Exception {
+        // Arrange
+        when(mealService.getAllMeals()).thenReturn(Collections.emptyList());
+
+        // Act & Assert
+        mockMvc.perform(get("/meals"))
+                .andExpect(status().isOk())
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
+                .andExpect(jsonPath("$", hasSize(0)));
+    }
+
+    @Test
     void createMeal_ShouldCreateAndReturnMeal() throws Exception {
         // Arrange
         when(mealService.saveMeal(any(Meal.class))).thenReturn(meal1);
@@ -83,6 +97,22 @@ public class MealControllerTest {
                 .andExpect(jsonPath("$.id", is(1)))
                 .andExpect(jsonPath("$.name", is("Bacalhau à Brás")))
                 .andExpect(jsonPath("$.price", is(15.5)));
+        
+        verify(mealService, times(1)).saveMeal(any(Meal.class));
+    }
+
+    @Test
+    void createMeal_WithInvalidMealTime_ShouldReturnBadRequest() throws Exception {
+        // Arrange
+        when(mealService.saveMeal(any(Meal.class)))
+                .thenThrow(new InvalidMealTimeException("Meal time must be between 11:00 and 22:00"));
+
+        // Act & Assert
+        mockMvc.perform(post("/meals")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(objectMapper.writeValueAsString(meal1)))
+                .andExpect(status().isBadRequest())
+                .andExpect(jsonPath("$.error", is("Meal time must be between 11:00 and 22:00")));
     }
 
     @Test
@@ -119,5 +149,35 @@ public class MealControllerTest {
                 .andExpect(jsonPath("$.id", is(1)))
                 .andExpect(jsonPath("$.name", is("Bacalhau à Gomes de Sá")))
                 .andExpect(jsonPath("$.price", is(16.75)));
+        
+        verify(mealService, times(1)).updateMeal(eq(mealId), any(Meal.class));
+    }
+
+    @Test
+    void updateMeal_WithInvalidMealTime_ShouldReturnBadRequest() throws Exception {
+        // Arrange
+        Long mealId = 1L;
+        when(mealService.updateMeal(eq(mealId), any(Meal.class)))
+                .thenThrow(new InvalidMealTimeException("Meal time must be between 11:00 and 22:00"));
+
+        // Act & Assert
+        mockMvc.perform(put("/meals/{mealId}", mealId)
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(objectMapper.writeValueAsString(meal1)))
+                .andExpect(status().isBadRequest())
+                .andExpect(jsonPath("$.error", is("Meal time must be between 11:00 and 22:00")));
+    }
+
+    @Test
+    void handleInvalidMealTimeException_ShouldReturnBadRequest() throws Exception {
+        // This test specifically tests the @ExceptionHandler method
+        // by setting up conditions to trigger it
+        Long mealId = 1L;
+        when(mealService.getMealById(mealId))
+                .thenThrow(new InvalidMealTimeException("Test exception handling"));
+
+        mockMvc.perform(get("/meals/{mealId}", mealId))
+                .andExpect(status().isBadRequest())
+                .andExpect(jsonPath("$.error", is("Test exception handling")));
     }
 }
