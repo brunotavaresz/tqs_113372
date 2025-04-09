@@ -788,7 +788,7 @@ const App = () => {
                                       sx={{ fontWeight: 'bold', mr: 2 }}
                                     />
                                     <Typography variant="body2" color="text.secondary">
-                                      {period === 'Almoço' ? '12:00 às 14:00' : '19:00 às 22:00'}
+                                      {period === 'Almoço' ? '11:00 às 15:00' : '18:00 às 23:00'}
                                     </Typography>
                                   </Box>
                                   
