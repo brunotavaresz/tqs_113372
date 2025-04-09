@@ -263,7 +263,7 @@ const ReservationManagement = () => {
   return (
     <Container maxWidth="lg">
       <Typography variant="h4" component="h1" gutterBottom align="center" sx={{ mt: 4 }}>
-        Reservation Management System
+        Gestão de Reservas
       </Typography>
       
       {/* Search bar */}
@@ -282,7 +282,7 @@ const ReservationManagement = () => {
           onClick={fetchReservation}
           disabled={loading}
         >
-          {loading ? <CircularProgress size={24} /> : 'Find'}
+          {loading ? <CircularProgress size={24} /> : 'Procurar'}
         </Button>
       </Box>
       
@@ -300,14 +300,14 @@ const ReservationManagement = () => {
         <Card variant="outlined" sx={{ mb: 4 }}>
           <CardContent>
               <Typography variant="h5" component="h2" gutterBottom>
-                Reservation: {reservation.reservationCode}
+                Reserva: {reservation.reservationCode}
               </Typography>
 
               <Grid container spacing={2}>
                 {/* Restaurante */}
                 <Grid item xs={12} md={6}>
                   <Typography variant="subtitle1" component="div" color="text.secondary">
-                    Restaurant:
+                    Restaurante:
                   </Typography>
                   <Typography variant="body1" component="div" gutterBottom>
                     {reservation.restaurant.name || 'N/A'} ({reservation.restaurant.location || 'N/A'})
@@ -317,7 +317,7 @@ const ReservationManagement = () => {
                 {/* Cliente */}
                 <Grid item xs={12} md={6}>
                   <Typography variant="subtitle1" component="div" color="text.secondary">
-                    Customer:
+                    Cliente:
                   </Typography>
                   <Typography variant="body1" component="div" gutterBottom>
                     {reservation.customerName || 'N/A'}
@@ -327,13 +327,13 @@ const ReservationManagement = () => {
                 {/* Refeição */}
                 <Grid item xs={12} md={6}>
                   <Typography variant="subtitle1" component="div" color="text.secondary">
-                    Meal:
+                    Prato:
                   </Typography>
                   <Typography variant="body1" component="div" gutterBottom>
                     {reservation.meal.name} - €{reservation.meal.price.toFixed(2)}
                   </Typography>
                   <Typography variant="body2" component="div" color="text.secondary">
-                    Date: {reservation.meal.date}
+                    Data: {reservation.meal.date}
                   </Typography>
                 </Grid>
 
@@ -383,7 +383,7 @@ const ReservationManagement = () => {
               onClick={() => setDeleteDialogOpen(true)}
               disabled={loading}
             >
-              Delete
+              Eliminar
             </Button>
           </CardActions>
         </Card>
@@ -392,7 +392,7 @@ const ReservationManagement = () => {
       
       {/* All reservations list */}
       <Typography variant="h5" component="h2" gutterBottom>
-        All Reservations
+        Todas as Reservas
       </Typography>
       
       {loading && allReservations.length === 0 ? (
@@ -410,7 +410,7 @@ const ReservationManagement = () => {
                   </Typography>
                   <Box sx={{ mt: 1 }}>
                     <Typography variant="body2" component="div" color="text.secondary">
-                      Restaurant:
+                      Restaurante:
                     </Typography>
                     <Typography variant="body2" component="div">
                       {res.restaurant.name}
@@ -418,7 +418,7 @@ const ReservationManagement = () => {
                   </Box>
                   <Box sx={{ mt: 1 }}>
                     <Typography variant="body2" component="div" color="text.secondary">
-                      Meal:
+                      Prato:
                     </Typography>
                     <Typography variant="body2" component="div">
                       {res.meal.name} - {res.meal.date}
@@ -442,7 +442,7 @@ const ReservationManagement = () => {
                     size="small" 
                     onClick={() => selectReservation(res.reservationCode)}
                   >
-                    View Details
+                    Detalhes
                   </Button>
                 </CardActions>
               </Card>
@@ -450,12 +450,12 @@ const ReservationManagement = () => {
           ))}
         </Grid>
       ) : (
-        <Alert severity="info" sx={{ my: 2 }}>No reservations found.</Alert>
+        <Alert severity="info" sx={{ my: 2 }}>Sem reservas.</Alert>
       )}
       
       {/* Edit Reservation Dialog */}
       <Dialog open={editDialogOpen} onClose={() => setEditDialogOpen(false)} maxWidth="sm" fullWidth>
-        <DialogTitle>Edit Reservation</DialogTitle>
+        <DialogTitle>Editar Reserva</DialogTitle>
         <DialogContent>
           <Box component="form" sx={{ mt: 2 }}>
             <FormControlLabel
@@ -509,7 +509,7 @@ const ReservationManagement = () => {
           </Box>
         </DialogContent>
         <DialogActions>
-          <Button onClick={() => setEditDialogOpen(false)}>Cancel</Button>
+          <Button onClick={() => setEditDialogOpen(false)}>Cancelar</Button>
           <Button onClick={handleUpdate} variant="contained" color="primary" disabled={loading}>
             {loading ? <CircularProgress size={24} /> : 'Save Changes'}
           </Button>
@@ -518,16 +518,16 @@ const ReservationManagement = () => {
       
       {/* Delete Confirmation Dialog */}
       <Dialog open={deleteDialogOpen} onClose={() => setDeleteDialogOpen(false)}>
-        <DialogTitle>Confirm Deletion</DialogTitle>
+        <DialogTitle>Confirmar exclusão</DialogTitle>
         <DialogContent>
           <Typography variant="body1" component="div">
-            Are you sure you want to delete this reservation? This action cannot be undone.
+            Certeza que quer eliminar a reserva? Não dá para voltar atrás.
           </Typography>
         </DialogContent>
         <DialogActions>
-          <Button onClick={() => setDeleteDialogOpen(false)}>Cancel</Button>
+          <Button onClick={() => setDeleteDialogOpen(false)}>Cancelar</Button>
           <Button onClick={handleDelete} color="error" variant="contained" disabled={loading}>
-            {loading ? <CircularProgress size={24} /> : 'Delete'}
+            {loading ? <CircularProgress size={24} /> : 'Eliminar'}
           </Button>
         </DialogActions>
       </Dialog>

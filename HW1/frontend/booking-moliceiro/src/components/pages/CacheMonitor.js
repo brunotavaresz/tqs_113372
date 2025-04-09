@@ -32,26 +32,26 @@ const CacheMonitor = () => {
   const [stats, setStats] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [refreshInterval, setRefreshInterval] = useState(30); // seconds
+  const [refreshInterval, setRefreshInterval] = useState(30); // segundos
   const [lastRefreshed, setLastRefreshed] = useState(null);
   const [refreshing, setRefreshing] = useState(false);
 
-  // Format number with commas
+  // Formatar número com vírgulas
   const formatNumber = (num) => {
     return num?.toLocaleString() || '0';
   };
 
-  // Format percentage
+  // Formatar percentagem
   const formatPercentage = (value) => {
     return value !== undefined ? `${(value * 100).toFixed(2)}%` : '0%';
   };
 
-  // Format date
+  // Formatar data
   const formatDate = (date) => {
-    return date ? new Date(date).toLocaleTimeString() : 'Never';
+    return date ? new Date(date).toLocaleTimeString() : 'Nunca';
   };
 
-  // Fetch cache statistics
+  // Obter estatísticas do cache
   const fetchStats = async () => {
     setRefreshing(true);
     try {
@@ -60,44 +60,44 @@ const CacheMonitor = () => {
       setLastRefreshed(new Date());
       setError(null);
     } catch (err) {
-      setError('Failed to fetch cache statistics');
-      console.error('Error fetching cache statistics:', err);
+      setError('Falha ao obter estatísticas do cache');
+      console.error('Erro ao obter estatísticas do cache:', err);
     } finally {
       setLoading(false);
       setRefreshing(false);
     }
   };
 
-  // Clear cache
+  // Limpar cache
   const clearCache = async () => {
     try {
       await axios.post('http://localhost:8080/api/weather/cache/clear');
-      // Refresh stats after clearing
+      // Atualizar estatísticas após limpar
       fetchStats();
     } catch (err) {
-      setError('Failed to clear cache');
-      console.error('Error clearing cache:', err);
+      setError('Falha ao limpar o cache');
+      console.error('Erro ao limpar o cache:', err);
     }
   };
 
-  // Auto-refresh timer
+  // Temporizador de atualização automática
   useEffect(() => {
-    fetchStats(); // Initial fetch
+    fetchStats(); // Obter inicialmente
     
     const interval = setInterval(() => {
       fetchStats();
     }, refreshInterval * 1000);
     
-    return () => clearInterval(interval); // Cleanup
+    return () => clearInterval(interval); // Limpeza
   }, [refreshInterval]);
 
-  // Handle refresh interval change
+  // Alterar intervalo de atualização
   const handleIntervalChange = (e) => {
     const value = e.target.value;
     setRefreshInterval(value);
   };
 
-  // Handle manual refresh
+  // Atualização manual
   const handleRefresh = () => {
     fetchStats();
   };
@@ -107,7 +107,7 @@ const CacheMonitor = () => {
       <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '300px' }}>
         <CircularProgress />
         <Typography variant="body1" sx={{ ml: 2 }}>
-          Loading cache statistics...
+          A obter estatísticas do cache...
         </Typography>
       </Box>
     );
@@ -119,11 +119,11 @@ const CacheMonitor = () => {
         <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 2 }}>
           <Typography variant="h4" component="h1" gutterBottom>
             <CachedIcon sx={{ mr: 1, verticalAlign: 'middle' }} />
-            Weather Cache Monitor
+            Monitor de Cache de Meteorologia
           </Typography>
           
           <Box sx={{ display: 'flex', alignItems: 'center' }}>
-            <Tooltip title="Refresh now">
+            <Tooltip title="Atualizar agora">
               <IconButton 
                 color="primary" 
                 onClick={handleRefresh} 
@@ -135,28 +135,28 @@ const CacheMonitor = () => {
             </Tooltip>
             
             <FormControl size="small" sx={{ minWidth: 150, mr: 2 }}>
-              <InputLabel>Auto-refresh</InputLabel>
+              <InputLabel>Atualização automática</InputLabel>
               <Select
                 value={refreshInterval}
-                label="Auto-refresh"
+                label="Atualização automática"
                 onChange={handleIntervalChange}
               >
-                <MenuItem value={5}>Every 5 seconds</MenuItem>
-                <MenuItem value={10}>Every 10 seconds</MenuItem>
-                <MenuItem value={30}>Every 30 seconds</MenuItem>
-                <MenuItem value={60}>Every minute</MenuItem>
-                <MenuItem value={300}>Every 5 minutes</MenuItem>
+                <MenuItem value={5}>A cada 5 segundos</MenuItem>
+                <MenuItem value={10}>A cada 10 segundos</MenuItem>
+                <MenuItem value={30}>A cada 30 segundos</MenuItem>
+                <MenuItem value={60}>A cada minuto</MenuItem>
+                <MenuItem value={300}>A cada 5 minutos</MenuItem>
               </Select>
             </FormControl>
             
-            <Tooltip title="Clear cache">
+            <Tooltip title="Limpar cache">
               <Button 
                 variant="contained" 
                 color="error" 
                 startIcon={<ClearIcon />}
                 onClick={clearCache}
               >
-                Clear Cache
+                Limpar Cache
               </Button>
             </Tooltip>
           </Box>
@@ -167,7 +167,7 @@ const CacheMonitor = () => {
         )}
         
         <Typography variant="body2" color="text.secondary" sx={{ mb: 3 }}>
-          Last refreshed: {formatDate(lastRefreshed)}
+          Última atualização: {formatDate(lastRefreshed)}
         </Typography>
         
         {error && (
@@ -271,13 +271,13 @@ const CacheMonitor = () => {
                     </Box>
                     
                     <Box sx={{ mt: 3 }}>
-                    <Alert severity="info">
+                      <Alert severity="info">
                         <Typography variant="body2">
-                        Once cached, weather data will be served from cache for 
-                        {stats?.cacheTtlSeconds && ` ${Math.floor(stats.cacheTtlSeconds / 60)} minutes`} 
-                        before requesting fresh data from the API.
+                          Os dados meteorológicos serão enviados a partir da cache durante
+                          {stats?.cacheTtlSeconds && ` ${Math.floor(stats.cacheTtlSeconds / 60)} min `}
+                          para serem obtidos novamente na API.
                         </Typography>
-                    </Alert>
+                      </Alert>
                     </Box>
                 </CardContent>
                 </Card>
