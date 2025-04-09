@@ -41,9 +41,13 @@ jobs:
           key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
           restore-keys: ${{ runner.os }}-m2
 
+      # Adicionando passo de depuração para listar os diretórios
+      - name: List directories
+        run: ls -R
+
       # Navegar até o diretório onde está o pom.xml
       - name: Navigate to project directory
-        run: cd HW1/api/bookingMoliceiroHW1  # Caminho correto para o seu projeto
+        run: cd HW1/api/bookingMoliceiro && pwd  # Caminho correto para o seu projeto e imprime o diretório atual
 
       # Rodar a análise com Maven
       - name: Build and analyze
