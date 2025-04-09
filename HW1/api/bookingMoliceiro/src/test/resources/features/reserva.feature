@@ -1,13 +1,19 @@
-Feature: Reserva de Moliceiro
+Feature: Reservar e fazer check-in em um restaurante
+  Como um usuário
+  Quero fazer uma reserva em um restaurante
+  E realizar o check-in 
+  Para garantir minha mesa
 
-    Scenario: Fazer uma reserva e verificar check-in
+  Scenario: Fazer uma reserva e realizar check-in
     Given o usuário acessa a aplicação em "http://localhost:3000/"
     When o usuário navega até a página de reserva
-    And seleciona um restaurante da lista
-    And preenche o nome do cliente como "Bruno"
-    Then a reserva é efetuada com a mensagem "Reserva Confirmada!"
+    And clica na imagem do restaurante
+    And seleciona o primeiro horário disponível
+    And preenche "Bruno" como nome do cliente
+    And pressiona Enter
+    And confirma a reserva
     And navega para consultar reserva
-    And clica no botão de tamanho pequeno
-    And clica no botão contido
-    And confirma com o botão de sucesso
-    Then verifica se o status é "Checked In"
+    And clica na reserva
+    And clica no botão de confirmar
+    And clica no botão de sucesso
+    Then o status deve ser "Checked In"
