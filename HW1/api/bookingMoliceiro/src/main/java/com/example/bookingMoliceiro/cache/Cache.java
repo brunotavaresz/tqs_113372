@@ -3,13 +3,13 @@ package com.example.bookingMoliceiro.cache;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Component;
-
-import java.util.concurrent.ConcurrentHashMap;
+//hash map
+import java.util.HashMap;
 
 @Component
 public class Cache {
     private static Logger logger = LogManager.getLogger(Cache.class);
-    private final ConcurrentHashMap<String, CacheItem> cacheMap = new ConcurrentHashMap<>();
+    private final HashMap<String, CacheItem> cacheMap = new HashMap<>();
     private int hits = 0;
     private int misses = 0;
     private int requests = 0;

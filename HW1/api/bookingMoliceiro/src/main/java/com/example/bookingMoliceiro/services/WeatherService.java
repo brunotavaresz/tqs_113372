@@ -67,7 +67,7 @@ public class WeatherService {
         Map<String, Object> response = restTemplate.getForObject(url, Map.class);
         Map<String, Object> forecast = findClosestForecast(response, timestamp);
 
-        cache.addWeatherDataToCache(cacheKey, forecast, 120000); // Cache TTL 2 minutes
+        cache.addWeatherDataToCache(cacheKey, forecast, 900000); // Cache TTL 2 minutes
         logger.info("Weather data fetched and cached for key: {}", cacheKey);
         return forecast;
     }

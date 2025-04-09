@@ -273,8 +273,8 @@ const CacheMonitor = () => {
                     <Box sx={{ mt: 3 }}>
                       <Alert severity="info">
                         <Typography variant="body2">
-                          Os dados meteorológicos serão enviados a partir da cache durante
-                          {stats?.cacheTtlSeconds && ` ${Math.floor(stats.cacheTtlSeconds / 60)} min `}
+                          Dados do tempo serão enviados a partir da cache durante
+                          {stats?.cacheTtlSeconds && ` ${Math.floor(stats.cacheTtlSeconds / 60)}min `}
                           para serem obtidos novamente na API.
                         </Typography>
                       </Alert>
