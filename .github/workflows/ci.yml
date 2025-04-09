@@ -1,0 +1,42 @@
+name: Spring Boot CI
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'HW1/api/bookingMoliceiro/**'  # Aciona o workflow apenas para alterações na pasta HW1/api
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'HW1/api/bookingMoliceiro/**'  # Aciona o workflow apenas para pull requests que afetam a pasta HW1/api
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up JDK
+      uses: actions/setup-java@v2
+      with:
+        java-version: '21'  # Ajuste para a versão do Java necessária para sua API
+
+    - name: Cache Maven dependencies
+      uses: actions/cache@v2
+      with:
+        path: ~/.m2/repository
+        key: ${{ runner.os }}-maven-${{ hashFiles('HW1/api/**/pom.xml') }}  # Ajuste o caminho se necessário
+        restore-keys: |
+          ${{ runner.os }}-maven-
+
+    - name: Build with Maven
+      working-directory: HW1/api  # Defina o diretório de trabalho para a pasta da sua API
+      run: mvn clean install -DskipTests
+
+    - name: Run tests with Maven
+      working-directory: HW1/api  # Defina o diretório de trabalho para a pasta da sua API
+      run: mvn test
