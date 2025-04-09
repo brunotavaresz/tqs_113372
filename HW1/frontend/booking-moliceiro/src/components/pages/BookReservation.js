@@ -370,7 +370,7 @@ const App = () => {
       setSnackbarOpen(true);
     } catch (err) {
       console.error('Error making reservation:', err);
-      setSnackbarMessage("Erro ao fazer reserva. Tente novamente.");
+      setSnackbarMessage("Restaurante cheio. Tente outra data.");
       setSnackbarSeverity("error");
       setSnackbarOpen(true);
     }
