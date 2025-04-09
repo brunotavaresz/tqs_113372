@@ -13,7 +13,7 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
+import java.security.SecureRandom; // Import SecureRandom
 
 @Configuration
 public class DataInitializer {
@@ -38,7 +38,9 @@ public class DataInitializer {
     };
     
     private final double[] prices = {3.50, 4.00, 4.50, 5.00, 5.50, 6.00};
-    private final Random random = new Random();
+    
+    // Use SecureRandom instead of Random for cryptographically secure random numbers
+    private final SecureRandom secureRandom = new SecureRandom();
 
     @Bean
     public CommandLineRunner initData(
@@ -149,7 +151,7 @@ public class DataInitializer {
         // Criar opções de refeição para o período
         for (int i = 0; i < numOptions; i++) {
             // Seleciona uma refeição aleatória da lista de opções
-            String mealName = options[random.nextInt(options.length)];
+            String mealName = options[secureRandom.nextInt(options.length)]; // Use SecureRandom here
             
             // Horário fixo para cada refeição
             LocalTime mealTime;
@@ -160,7 +162,7 @@ public class DataInitializer {
             }
             
             // Preço aleatório da lista de preços
-            double price = prices[random.nextInt(prices.length)];
+            double price = prices[secureRandom.nextInt(prices.length)]; // Use SecureRandom here
             
             // Cria a refeição
             Meal meal = new Meal(null, mealName, price, date, mealTime, restaurant);
