@@ -28,10 +28,8 @@ public class ReservaSteps {
       js = (JavascriptExecutor) driver;
       vars = new HashMap<String, Object>();
       
-      // Espera implícita para todos os elementos
       driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
       
-      // WebDriverWait para condições específicas
       wait = new WebDriverWait(driver, Duration.ofSeconds(15));
    }
    

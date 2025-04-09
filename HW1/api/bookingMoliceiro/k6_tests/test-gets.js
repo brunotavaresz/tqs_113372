@@ -3,7 +3,7 @@ import { check, sleep } from 'k6';
 
 export default function () {
   // Teste para o endpoint /restaurants
-  const urlRestaurants = 'http://localhost:8080/restaurants';  // Altere para o endpoint correto
+  const urlRestaurants = 'http://localhost:8080/restaurants';
   let resRestaurants = http.get(urlRestaurants);
   
   // Verifica o status e o tempo de resposta para /restaurants
@@ -13,7 +13,7 @@ export default function () {
   });
 
   // Teste para o endpoint /reservations
-  const urlReservations = 'http://localhost:8080/reservations';  // Altere para o endpoint correto
+  const urlReservations = 'http://localhost:8080/reservations';
   let resReservations = http.get(urlReservations);
   
   // Verifica o status e o tempo de resposta para /reservations
@@ -23,7 +23,7 @@ export default function () {
   });
 
   // Teste para o endpoint /meals
-  const urlMeals = 'http://localhost:8080/meals';  // Altere para o endpoint correto
+  const urlMeals = 'http://localhost:8080/meals';
   let resMeals = http.get(urlMeals);
 
   // Verifica o status e o tempo de resposta para /meals
